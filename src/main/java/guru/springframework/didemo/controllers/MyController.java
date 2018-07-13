@@ -9,13 +9,12 @@ public class MyController {
 
     private GreetingService greetingService;
 
-    public MyController(@Qualifier("greetingServiceImpl") GreetingService greetingService) {
+    public MyController(@Qualifier("primaryGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
     public String hello(){
-        System.out.println("hello");
-        return "foo";
+        return this.greetingService.sayGreeting();
     }
 
 }
