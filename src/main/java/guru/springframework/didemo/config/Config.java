@@ -11,15 +11,13 @@ import org.springframework.context.annotation.Profile;
 public class Config {
 
     @Bean
-    @Primary
-    @Profile("default")
     GreetingService greetingService(){
         return new GreetingServiceImpl();
     }
 
     @Bean
     @Primary
-    @Profile("en")
+    @Profile({"en","default"})
     GreetingService primaryGreetingService(){
         return new PrimaryGreetingService();
     }
